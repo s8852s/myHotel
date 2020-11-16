@@ -1,0 +1,36 @@
+<h1>客房資訊</h1>
+<%= flash[:notice] %>
+
+<table>
+    <thead>
+        <tr>
+            <td>房號</td>
+            <td>房名</td>
+            <td>房型</td>
+            <td>容納人數</td>
+            <td>價格</td>
+            <td>設施</td>
+            <td>簡介</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @rooms.each do |room| %>
+        <tr>
+            <td><%= room.room_number %></td>
+            <td><%= room.room_name %></td>
+            <td><%= room.room_types %></td>
+            <td><%= room.sleeps %></td>
+            <td><%= room.price %></td>
+            <td><%= room.room_features %></td>
+            <td><%= room.description %></td>
+            <td>
+                <%= link_to "編輯", edit_room_path(room) %>
+                <%= link_to "刪除", room_path(room), method: "delete", data: {confirm:"確定要刪除嗎?" } %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to "新增房間", new_room_path %>

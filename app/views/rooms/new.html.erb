@@ -1,0 +1,29 @@
+<h1>新增房間</h1>
+
+<%= form_for(@room) do |form| %>
+
+<%= form.label :room_number, "房號" %>
+<%= form.text_field :room_number %>
+<br>
+<%= form.label :room_name, "房名" %>
+<%= form.text_field :room_name %>
+<br>
+<%= form.label :room_types, "房型" %>
+<%= form.text_field :room_types %>
+<br>
+<%= form.label :sleeps, "容納人數" %>
+<%= form.text_field :sleeps %>
+<br>
+<%= form.label :price, "價格" %>
+<%= form.text_field :price %>
+<br>
+<%= form.label :room_features, "設施" %>
+<%= form.text_area :room_features %>
+<br>
+<%= form.label :description, "簡介" %>
+<%= form.text_area :description %>
+<br>
+<%= form.submit %>
+<% end %>
+
+<%= link_to "返回房間列表", rooms_path %>
